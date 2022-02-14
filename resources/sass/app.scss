@@ -6,3 +6,13 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+#videogames{
+    .coltable{
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+    }
+}

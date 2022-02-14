@@ -9,7 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    @include('components.header')
-    @yield('content')
+    <div id="app">
+        @include('components.header')
+        @yield('content')
+    </div>
+    
 </body>
 </html>
