@@ -1970,9 +1970,13 @@ __webpack_require__.r(__webpack_exports__);
       videogames: []
     };
   },
+  props: {
+    user: String
+  },
   mounted: function mounted() {
     var _this = this;
 
+    console.log(this.user);
     axios.get('api/getVideogames').then(function (res) {
       _this.videogames = res.data;
     })["catch"](function (err) {
@@ -37573,7 +37577,21 @@ var render = function () {
     "div",
     { staticClass: "container", attrs: { id: "videogames" } },
     [
-      _vm._m(0),
+      _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._m(1),
+        _vm._v(" "),
+        _vm._m(2),
+        _vm._v(" "),
+        _vm.user
+          ? _c("div", { staticClass: "col-2 coltable" }, [
+              _vm._v(
+                "\n           \n                Action\n            \n        "
+              ),
+            ])
+          : _vm._e(),
+      ]),
       _vm._v(" "),
       _vm._l(_vm.videogames, function (videogame, i) {
         return _c("div", { key: i, staticClass: "row" }, [
@@ -37601,16 +37619,18 @@ var render = function () {
             ),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-2 coltable" }, [
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-danger",
-                attrs: { href: "/delete/videogame/" + videogame.id },
-              },
-              [_vm._v("\n                Delete\n            ")]
-            ),
-          ]),
+          _vm.user
+            ? _c("div", { staticClass: "col-2 coltable" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { href: "/delete/videogame/" + videogame.id },
+                  },
+                  [_vm._v("\n                Delete\n            ")]
+                ),
+              ])
+            : _vm._e(),
         ])
       }),
     ],
@@ -37622,22 +37642,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-4 coltable" }, [
-        _c("h3", [_vm._v("\n                Title\n            ")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3 coltable" }, [
-        _c("h3", [_vm._v("\n                Subtitle\n            ")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-3 coltable" }, [
-        _c("h3", [_vm._v("\n                rating\n            ")]),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-2 coltable" }, [
-        _vm._v("\n           \n                Action\n            \n        "),
-      ]),
+    return _c("div", { staticClass: "col-4 coltable" }, [
+      _c("h3", [_vm._v("\n                Title\n            ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 coltable" }, [
+      _c("h3", [_vm._v("\n                Subtitle\n            ")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3 coltable" }, [
+      _c("h3", [_vm._v("\n                rating\n            ")]),
     ])
   },
 ]

@@ -19,7 +19,7 @@
                 </h3>
 
             </div>
-            <div class="col-2 coltable" >
+            <div class="col-2 coltable" v-if="user">
                
                     Action
                 
@@ -45,7 +45,7 @@
                     {{videogame.votes}}
                 
             </div>
-            <div class="col-2 coltable" >
+            <div class="col-2 coltable" v-if="user" >
                 <a :href="`/delete/videogame/${videogame.id}`" class="btn btn-danger">
                     Delete
                 </a>
@@ -56,12 +56,17 @@
 
 <script>
     export default {
+       
         data(){
             return{
                 videogames : [],
             }
         },
+        props : {
+            user : String,
+        },
         mounted() {
+            console.log(this.user);
             axios.get('api/getVideogames')
             .then(res => {
                 this.videogames = res.data;

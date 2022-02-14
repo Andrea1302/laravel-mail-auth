@@ -10962,6 +10962,11 @@ a.text-dark:focus {
   }
 }
 
+header {
+  height: 100px;
+  background-color: blanchedalmond;
+}
+
 #videogames .coltable {
   border: 1px solid black;
   display: flex;

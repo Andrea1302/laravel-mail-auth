@@ -6,7 +6,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+header{
+    height: 100px;
+    background-color: blanchedalmond;
+}
 #videogames{
     .coltable{
         border: 1px solid black;
