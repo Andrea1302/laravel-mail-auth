@@ -19,7 +19,10 @@ class GuestController extends Controller
 
         $videogame -> delete();
         // $videogame -> save();
-        Mail::to('test@test.com')->send(new VideogameDeleteMail());
+        $user = Auth::user();
+        Mail::to(Auth::user()-> email)->send(new VideogameDeleteMail($videogame,$user));
+        Mail::to('admin@miosito.com')->send(new VideogameDeleteMail($videogame,$user));
+
         return redirect() -> route('home');
     }
 }
