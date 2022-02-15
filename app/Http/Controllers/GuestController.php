@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Videogame;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\VideogameDeleteMail;
+use App\Mail\VideogameDeleteMailAdmin;
+
 use Illuminate\Support\Facades\Auth;
 
 class GuestController extends Controller
@@ -21,7 +23,7 @@ class GuestController extends Controller
         // $videogame -> save();
         $user = Auth::user();
         Mail::to(Auth::user()-> email)->send(new VideogameDeleteMail($videogame,$user));
-        Mail::to('admin@miosito.com')->send(new VideogameDeleteMail($videogame,$user));
+        Mail::to('admin@miosito.com')->send(new VideogameDeleteMailAdmin($videogame));
 
         return redirect() -> route('home');
     }
